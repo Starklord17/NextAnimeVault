@@ -6,14 +6,11 @@
 
 ---
 
+### Server Actions
+- https://nextjs.org/docs/app/api-reference/functions/server-actions
+
 ### React intersection server
 - https://www.npmjs.com/package/react-intersection-observer
 
-### Tailwind VSCode Extension - Inline Fold
- 
-Name: Inline fold   
-Id: moalamri.inline-fold   
-Description: A custom decorator that "fold" matching content in single line   
-Version: 0.2.6   
-Publisher: Mohammed Alamri   
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold   
+### Framer Motion
+- https://www.framer.com/motion/
