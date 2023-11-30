@@ -6,7 +6,7 @@
 
 ---
 
-##### Tailwind VSCode Extension - Inline Fold
+### Tailwind VSCode Extension - Inline Fold
  
 Name: Inline fold   
 Id: moalamri.inline-fold   
