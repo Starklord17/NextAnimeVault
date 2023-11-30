@@ -8,9 +8,9 @@
 
 ##### Tailwind VSCode Extension - Inline Fold
  
-Name: Inline fold
-Id: moalamri.inline-fold
-Description: A custom decorator that "fold" matching content in single line
-Version: 0.2.6
-Publisher: Mohammed Alamri
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold
+Name: Inline fold   
+Id: moalamri.inline-fold   
+Description: A custom decorator that "fold" matching content in single line   
+Version: 0.2.6   
+Publisher: Mohammed Alamri   
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold   
