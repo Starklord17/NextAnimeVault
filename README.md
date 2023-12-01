@@ -9,7 +9,7 @@
 ### Server Actions
 - https://nextjs.org/docs/app/api-reference/functions/server-actions
 
-### React intersection server
+### React intersection observer
 - https://www.npmjs.com/package/react-intersection-observer
 
 ### Framer Motion
