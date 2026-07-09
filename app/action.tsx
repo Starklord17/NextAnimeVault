@@ -11,13 +11,22 @@ import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
  * `AnimeCard` component with a unique key and props `anime` and `index`.
  */
 export const fetchAnime = async (page: number) => {
-  const response = await fetch(`https://shikimori.one/api/animes?page=${page}&limit=8&order=popularity`);
+  try {
+    const response = await fetch(
+      `https://shikimori.one/api/animes?page=${page}&limit=8&order=popularity`
+    );
 
-  const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`Shikimori API responded with ${response.status}`);
+    }
 
-  // console.log(data);
+    const data = await response.json();
 
-  return data.map((item: AnimeProp, index: number) => (
-    <AnimeCard key={item.id} anime={item} index={index} />
-  ));
-}
+    return data.map((item: AnimeProp, index: number) => (
+      <AnimeCard key={item.id} anime={item} index={index} />
+    ));
+  } catch (error) {
+    console.error("Failed to fetch anime:", error);
+    return [];
+  }
+};
