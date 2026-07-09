@@ -4,7 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*",
+        hostname: "shikimori.one",
+      },
+      {
+        protocol: "https",
+        hostname: "**.shikimori.one",
       },
     ],
   },
