@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState, type JSX } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { fetchAnime } from "@/app/action";

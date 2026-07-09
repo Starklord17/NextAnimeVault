@@ -1,32 +1,21 @@
 "use server";
 
-import AnimeCard, { AnimeProp } from "@/components/AnimeCard";
+import AnimeCard from "@/components/AnimeCard";
+import { fetchAnimeData } from "./providers";
 
 /**
- * The function fetchAnime fetches anime data from the Shikimori API and returns an array of AnimeCard
- * components.
- * @param {number} page - The `page` parameter is used to specify the page number of the anime list
- * that you want to fetch. It is used in the API URL to determine which page of anime data to retrieve.
- * @returns The function `fetchAnime` is returning an array of JSX elements. Each element is an
- * `AnimeCard` component with a unique key and props `anime` and `index`.
+ * Fetch a page of popular anime and render it as a list of AnimeCard elements.
+ *
+ * Data is resolved by {@link fetchAnimeData}, which tries several public anime
+ * APIs in order and falls back to the next one whenever a source is
+ * unavailable, so a single failing API never breaks the page.
+ *
+ * @param page - 1-based page number to fetch.
  */
 export const fetchAnime = async (page: number) => {
-  try {
-    const response = await fetch(
-      `https://shikimori.one/api/animes?page=${page}&limit=8&order=popularity`
-    );
+  const anime = await fetchAnimeData(page);
 
-    if (!response.ok) {
-      throw new Error(`Shikimori API responded with ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    return data.map((item: AnimeProp, index: number) => (
-      <AnimeCard key={item.id} anime={item} index={index} />
-    ));
-  } catch (error) {
-    console.error("Failed to fetch anime:", error);
-    return [];
-  }
+  return anime.map((item, index) => (
+    <AnimeCard key={item.id} anime={item} index={index} />
+  ));
 };
