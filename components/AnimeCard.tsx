@@ -1,17 +1,8 @@
 import Image from "next/image";
 import { MotionDiv } from "./MotionDiv";
+import type { AnimeProp } from "@/app/types";
 
-export interface AnimeProp {
-  id: string;
-  name: string;
-  image: {
-    original: string;
-  };
-  kind: string;
-  episodes: number;
-  episodes_aired: number;
-  score: string;
-}
+export type { AnimeProp };
 
 interface Prop {
   anime: AnimeProp;
@@ -39,10 +30,11 @@ function AnimeCard({ anime, index }: Prop) {
     >
       <div className="relative w-full h-[37vh]">
         <Image
-          src={`https://shikimori.one${anime.image.original}`}
+          src={anime.image}
           alt={anime.name}
           fill
-          className="rounded-xl"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="rounded-xl object-cover"
         />
       </div>
       <div className="py-4 flex flex-col gap-3">
@@ -66,7 +58,7 @@ function AnimeCard({ anime, index }: Prop) {
               className="object-contain"
             />
             <p className="text-base text-white font-bold">
-              {anime.episodes || anime.episodes_aired}
+              {anime.episodes || "?"}
             </p>
           </div>
           <div className="flex flex-row gap-2 items-center">
